@@ -147,7 +147,9 @@ int main ()
 	
 	printf ("\t2. CONSULTAR nome \n"); //Opções
 	
-	printf ("\t3. DELETAR nome \n\n"); //Opções
+	printf ("\t3. DELETAR nome \n"); //Opções
+	
+	printf ("\t4. Sair do sistema \n\n"); //Opções
 	
 	printf ("Digite sua opção:\t"); 
 	scanf ("%d" , &opcao); //locação de espaço e espera para o usuário digitar a opção desejada. Armazenamento da opção do usuário
@@ -166,6 +168,11 @@ int main ()
 		
 		case 3:
 		deletar();
+		break;
+		
+		case 4:
+		printf("Obrigado por utilizar o sistema!\n\n");
+		return 0;
 		break;
 		
 		default:
