@@ -86,8 +86,8 @@ int consulta()
 	
 	while(fgets(conteudo,200,file) !=NULL)
 	{
-		printf ("\nEssas são as informações do usuário:");
-		printf ("%s",conteudo);
+		printf ("\nEssas são as informações do usuário:\n\n");
+		printf ("\t%s\n",conteudo);
 		printf ("\n\n");
 	}
 	
@@ -132,66 +132,92 @@ int main ()
 	
 	int opcao=0; //Definindo variáveis
 	int laco=1;
+	char senhadigitada[10];
+	char correctsenhadigitada[]="admin";
 	
-	for(laco=1; laco=1;)
+	setlocale (LC_ALL, "Portuguese"); //Definindo a língua
+	printf("\t_____ CARTÓRIO DA EBAC_____\n\n");
+	printf("Login de administrador\n\nDigite a sua senha:");
+	int attempts = 0;
+    int maxAttempts = 7;
+	
+	
+    while (attempts < maxAttempts)
 	{
-	system ("cls");
-	
-	setlocale (LC_ALL, "Portuguese"); //Definindo linguagem
-	
-	
-	printf ("\t_____ CARTÓRIO DA EBAC_____\n\n"); //Título
-	printf ("Escolha a opção desejada abaixo:\n\n");
-	
-	printf ("\t1. REGISTRAR nome \n"); //Opções
-	
-	printf ("\t2. CONSULTAR nome \n"); //Opções
-	
-	printf ("\t3. DELETAR nome \n"); //Opções
-	
-	printf ("\t4. Sair do sistema \n\n"); //Opções
-	
-	printf ("Digite sua opção:\t"); 
-	scanf ("%d" , &opcao); //locação de espaço e espera para o usuário digitar a opção desejada. Armazenamento da opção do usuário
-	system ("cls"); //Limpeza da tela
-	
-	
-	switch (opcao)
-	{
-		case 1:
-		registro();
-		break;
+		scanf("%s",senhadigitada);
+        
+		if (strcmp(senhadigitada, correctsenhadigitada) == 0 && strcmp(senhadigitada, correctsenhadigitada) == 0)
+		{
+			system("cls");
 		
-		case 2:
-		consulta();
-		break;
-		
-		case 3:
-		deletar();
-		break;
-		
-		case 4:
-		printf("Obrigado por utilizar o sistema!\n\n");
-		return 0;
-		break;
-		
-		default:
-			printf("Essa opção não está disponível.\n\n");
-		system("pause");
-		break;	
-	}
-		printf("\t*Software desenvolvido por Marina Miran - Projeto 1 para EBAC.");	
-}
+			for(laco=1; laco=1;)
+			{
+				system ("cls");
+				setlocale (LC_ALL, "Portuguese"); //Definindo linguagem
+				
+				printf ("\t_____ CARTÓRIO DA EBAC_____\n\n"); //Título
+				printf ("Escolha a opção desejada abaixo:\n\n");
+				printf ("\t1. REGISTRAR nome \n"); //Opções
+				printf ("\t2. CONSULTAR nome \n"); //Opções
+				printf ("\t3. DELETAR nome \n"); //Opções
+				printf ("\t4. Sair do sistema \n\n"); //Opções
+				printf ("Digite sua opção:\t"); 
+				
+				scanf ("%d" , &opcao); //locação de espaço e espera para o usuário digitar a opção desejada. Armazenamento da opção do usuário
+				
+				system ("cls"); //Limpeza da tela
+				
+			
+				switch (opcao)
+				{
+					case 1:
+					registro();
+					break;
+				
+					case 2:
+					consulta();
+					break;
+					
+					case 3:
+					deletar();
+					break;
+				
+					case 4:
+					printf("Obrigado por utilizar o sistema!\n\n");
+					return 0;
+					break;
+				
+					default:
+					printf("Essa opção não está disponível.\n\n");
+			
+					system("pause");
+					break;	
+				}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		printf("\t*Software desenvolvido por Marina Miran - Projeto 1 para EBAC.");
-}
+			}
 
+		}
+					
+		else
+		{		
+		printf("Senha Incorreta\n\nTente novamente\t\n\n");
+		attempts++;
+		system ("pause");
+		system ("cls");
+		printf("\t_____ CARTÓRIO DA EBAC_____\n\n");
+		printf("Login de administrador\n\nDigite a sua senha:");
+		
+		}
+		
+		if (attempts == maxAttempts)
+		{
+        printf("\tNúmero de tentativas EXCEDIDO! O programa será fechado.\n");
+        }
+	}
+
+    return 0;
+    
+printf("\t*Software desenvolvido por Marina Miran - Projeto 1 para EBAC.");	
+
+}
+		
